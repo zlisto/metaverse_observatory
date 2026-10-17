@@ -22,41 +22,62 @@ function pickSpawn(node) {
   return spawns[0] || 'default'
 }
 
+// Shared so planet clicks don't fire after an orbit drag.
+const orbitDrag = { active: false, moved: false, last: [0, 0] }
+
 function OrbitCamera({ radius0 = 18 }) {
   const { camera, gl } = useThree()
-  const state = useRef({ theta: 0.55, phi: 0.85, r: radius0, dragging: false, last: [0, 0] })
+  // theta = yaw (unbounded, full 360°), phi = polar angle from +Y
+  const state = useRef({ theta: 0.55, phi: 0.85, r: radius0 })
 
   useEffect(() => {
     const el = gl.domElement
     const down = (e) => {
       if (e.button !== 0) return
-      state.current.dragging = true
-      state.current.last = [e.clientX, e.clientY]
+      // ignore drags that start on UI chrome
+      if (e.target.closest?.('.map-chrome, .world-pop, .map-exit, button, a')) return
+      orbitDrag.active = true
+      orbitDrag.moved = false
+      orbitDrag.last = [e.clientX, e.clientY]
+      try {
+        el.setPointerCapture(e.pointerId)
+      } catch {
+        /* older browsers */
+      }
     }
-    const up = () => {
-      state.current.dragging = false
+    const up = (e) => {
+      orbitDrag.active = false
+      try {
+        if (e?.pointerId != null) el.releasePointerCapture(e.pointerId)
+      } catch {
+        /* ok */
+      }
     }
     const move = (e) => {
+      if (!orbitDrag.active) return
+      const dx = e.clientX - orbitDrag.last[0]
+      const dy = e.clientY - orbitDrag.last[1]
+      if (Math.hypot(dx, dy) > 3) orbitDrag.moved = true
+      orbitDrag.last = [e.clientX, e.clientY]
       const s = state.current
-      if (!s.dragging) return
-      const dx = e.clientX - s.last[0]
-      const dy = e.clientY - s.last[1]
-      s.last = [e.clientX, e.clientY]
-      s.theta -= dx * 0.005
-      s.phi = Math.max(0.2, Math.min(Math.PI - 0.2, s.phi + dy * 0.005))
+      // horizontal drag spins all the way around; vertical tilts over the poles
+      s.theta -= dx * 0.007
+      s.phi = Math.max(0.08, Math.min(Math.PI - 0.08, s.phi + dy * 0.007))
     }
     const wheel = (e) => {
       e.preventDefault()
-      state.current.r = Math.max(6, Math.min(40, state.current.r + e.deltaY * 0.02))
+      state.current.r = Math.max(5, Math.min(48, state.current.r + e.deltaY * 0.02))
     }
     el.addEventListener('pointerdown', down)
-    window.addEventListener('pointerup', up)
-    window.addEventListener('pointermove', move)
+    el.addEventListener('pointerup', up)
+    el.addEventListener('pointercancel', up)
+    el.addEventListener('pointermove', move)
     el.addEventListener('wheel', wheel, { passive: false })
     return () => {
       el.removeEventListener('pointerdown', down)
-      window.removeEventListener('pointerup', up)
-      window.removeEventListener('pointermove', move)
+      el.removeEventListener('pointerup', up)
+      el.removeEventListener('pointercancel', up)
+      el.removeEventListener('pointermove', move)
       el.removeEventListener('wheel', wheel)
     }
   }, [gl])
@@ -73,18 +94,32 @@ function OrbitCamera({ radius0 = 18 }) {
   return null
 }
 
+const PINK = '#ff4fa3'
+const ARROW_GEO = new THREE.ConeGeometry(0.12, 0.36, 10)
+const ARROW_MAT = new THREE.MeshBasicMaterial({ color: PINK, toneMapped: false })
+const EDGE_MAT = new THREE.LineBasicMaterial({ color: PINK, transparent: true, opacity: 0.75 })
+
 function Edge({ a, b }) {
-  const geo = useMemo(() => {
-    const g = new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(...a),
-      new THREE.Vector3(...b),
-    ])
-    return g
+  const { lineGeo, arrowPos, arrowQuat } = useMemo(() => {
+    const from = new THREE.Vector3(...a)
+    const to = new THREE.Vector3(...b)
+    const dir = to.clone().sub(from)
+    const len = dir.length() || 1
+    dir.multiplyScalar(1 / len)
+    // stop short of the planet so the arrowhead reads clearly
+    const tip = to.clone().addScaledVector(dir, -0.45)
+    const base = from.clone().addScaledVector(dir, 0.35)
+    const lineGeo = new THREE.BufferGeometry().setFromPoints([base, tip])
+    const arrowPos = tip.toArray()
+    const arrowQuat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir)
+    return { lineGeo, arrowPos, arrowQuat }
   }, [a, b])
+
   return (
-    <line geometry={geo}>
-      <lineBasicMaterial color="#5ec8ff" transparent opacity={0.55} />
-    </line>
+    <group>
+      <line geometry={lineGeo} material={EDGE_MAT} />
+      <mesh geometry={ARROW_GEO} material={ARROW_MAT} position={arrowPos} quaternion={arrowQuat} />
+    </group>
   )
 }
 
@@ -105,6 +140,7 @@ function Planet({ node, selected, onSelect }) {
         ref={ref}
         onClick={(e) => {
           e.stopPropagation()
+          if (orbitDrag.moved) return // was an orbit drag, not a pick
           onSelect(node)
         }}
         onPointerOver={() => {
@@ -191,13 +227,6 @@ function Scene({ graph, selected, onSelect }) {
         <Planet key={n.id} node={n} selected={selected?.id === n.id} onSelect={onSelect} />
       ))}
       <OrbitCamera />
-      <mesh
-        onClick={() => onSelect(null)}
-        visible={false}
-      >
-        <sphereGeometry args={[90, 8, 8]} />
-        <meshBasicMaterial side={THREE.BackSide} />
-      </mesh>
     </>
   )
 }
@@ -272,7 +301,7 @@ export default function StellarMap({ onClose }) {
         </button>
       </div>
 
-      <div className="map-hint">Drag to orbit · scroll to zoom · click a world</div>
+      <div className="map-hint">Drag to spin · scroll to zoom · click a world · arrows show portal direction</div>
 
       {selected && (
         <div className="world-pop">
