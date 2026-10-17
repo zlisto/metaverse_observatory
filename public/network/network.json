@@ -457,6 +457,32 @@
       ]
     },
     {
+      "id": "metaverse_observatory",
+      "name": "Metaverse Observatory",
+      "address": "https://zlisto.github.io/metaverse_observatory/",
+      "owner": "zlisto",
+      "description": "A planetarium where a scientist Labubu keeps the Aetheroscope — look through it to see every registered world as a star, and teleport across the Metaverse Web.",
+      "spawns": [
+        "default",
+        "from_square"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_metaverse_observatory",
+          "target": "metaverse_square"
+        }
+      ],
+      "position": [
+        11.269,
+        0.35,
+        -2.477
+      ]
+    },
+    {
       "id": "metaverse_square",
       "name": "Metaverse Square",
       "address": "https://zlisto.github.io/hub_world/",
@@ -591,9 +617,9 @@
         }
       ],
       "position": [
-        11.269,
-        0.35,
-        -2.477
+        -6.886,
+        0.7,
+        9.795
       ]
     },
     {
@@ -665,9 +691,9 @@
         }
       ],
       "position": [
-        -6.886,
-        0.7,
-        9.795
+        -1.593,
+        -0.7,
+        -12.291
       ]
     }
   ],
@@ -841,6 +867,12 @@
       "spawn": "by_arcade_of_alexandria"
     },
     {
+      "from": "metaverse_observatory",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_metaverse_observatory"
+    },
+    {
       "from": "metaverse_square",
       "to": "evans_hall_3d",
       "label": "Yale SOM · Evans Hall",
@@ -927,8 +959,8 @@
   ],
   "errors": [],
   "stats": {
-    "worlds": 15,
-    "online": 15,
-    "edges": 42
+    "worlds": 16,
+    "online": 16,
+    "edges": 43
   }
 }
