@@ -1,0 +1,18 @@
+{
+  "protocol": "mvw/0.1",
+  "name": "Metaverse Observatory",
+  "description": "A planetarium where a scientist Labubu keeps the Aetheroscope — look through it to see every registered world as a star, and teleport across the Metaverse Web.",
+  "spawns": {
+    "default": "Inside the planetarium dome, facing the Aetheroscope",
+    "from_square": "Just in front of the portal back to Metaverse Square, facing into the dome"
+  },
+  "portals": [
+    {
+      "id": "to_square",
+      "label": "Metaverse Square",
+      "href": "https://zlisto.github.io/hub_world/",
+      "spawn": "by_metaverse_observatory",
+      "where": "The glowing doorway on the south arch of the dome"
+    }
+  ]
+}

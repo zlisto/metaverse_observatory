@@ -1,0 +1,934 @@
+{
+  "protocol": "mvw/0.1",
+  "kind": "metaverse_network",
+  "source": "metaverse_registry",
+  "nodes": [
+    {
+      "id": "evans_hall_3d",
+      "name": "Yale SOM · Evans Hall",
+      "address": "https://zlisto.github.io/evans-hall-3d/",
+      "owner": "zlisto",
+      "description": "Yale School of Management's Evans Hall on three floors: round classrooms where AI avatars of real professors teach (click one to chat), Labubu students, glass meeting rooms, spiral stairs, a café and a courtyard. Every professor here is an AI avatar, not the real person.",
+      "spawns": [
+        "default",
+        "from_square",
+        "from_darul",
+        "from_hpa",
+        "from_lighthouse",
+        "room_2200",
+        "from_starter"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_evans_hall_3d",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_darul_kebab",
+          "label": "Darul Kebab",
+          "href": "https://zlisto.github.io/darul_kebab/",
+          "spawn": "front_door",
+          "target": "darul_kebab"
+        },
+        {
+          "id": "to_hpa_office",
+          "label": "HPA Office",
+          "href": "https://baggs99.github.io/som-explore/office.html",
+          "spawn": "default",
+          "target": "hpa_office"
+        },
+        {
+          "id": "to_lighthouse",
+          "label": "Lighthouse of Alexandria",
+          "href": "https://zlisto.github.io/lighthouse-of-alexandria/",
+          "spawn": "from_square",
+          "target": "lighthouse_of_alexandria"
+        }
+      ],
+      "position": [
+        -2.36,
+        -0.35,
+        2.162
+      ]
+    },
+    {
+      "id": "darul_kebab",
+      "name": "Darul Kebab",
+      "address": "https://zlisto.github.io/darul_kebab/",
+      "owner": "zlisto",
+      "description": "A Cambridge restaurant on the east side of Mass Ave (now closed): one yellow dining room, tables with red cloths over white ones, a buffet of chafing dishes along the east wall, and the owner by the door holding a plate of biryani.",
+      "spawns": [
+        "front_door",
+        "default",
+        "evans_portal",
+        "gardens_portal"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_metaverse_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_darul_kebab",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_evans",
+          "label": "Evans Hall",
+          "href": "https://zlisto.github.io/evans-hall-3d/",
+          "spawn": "from_darul",
+          "target": "evans_hall_3d"
+        },
+        {
+          "id": "to_gardens",
+          "label": "Hanging Gardens",
+          "href": "https://zlisto.github.io/hanging-gardens-of-babylon/",
+          "spawn": "from_square",
+          "target": "hanging_gardens"
+        }
+      ],
+      "position": [
+        0.396,
+        0.0,
+        -4.508
+      ]
+    },
+    {
+      "id": "hpa_office",
+      "name": "HPA Office",
+      "address": "https://baggs99.github.io/som-explore/office.html",
+      "owner": "Baggs99",
+      "description": "A small procedural office world rebuilt from a phone scan and photos.",
+      "spawns": [
+        "default",
+        "from_square"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_hpa_office",
+          "target": "metaverse_square"
+        }
+      ],
+      "position": [
+        3.372,
+        0.35,
+        4.399
+      ]
+    },
+    {
+      "id": "starter_world",
+      "name": "Starter World",
+      "address": "https://zlisto.github.io/world_starter/",
+      "owner": "zlisto",
+      "description": "A plain empty room, the starting point for a new world. One portal on the north wall leads to Metaverse Square, the plaza with a portal to every world. Another leads to Evans Hall room 2200, where Tauhid teaches for real.",
+      "spawns": [
+        "default",
+        "hub_portal",
+        "evans_portal"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_metaverse_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_starter_world",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_evans_hall",
+          "label": "Evans Hall · 2200",
+          "href": "https://zlisto.github.io/evans-hall-3d/",
+          "spawn": "room_2200",
+          "target": "evans_hall_3d"
+        }
+      ],
+      "position": [
+        -6.302,
+        0.7,
+        -1.115
+      ]
+    },
+    {
+      "id": "great_pyramid",
+      "name": "Great Pyramid of Giza",
+      "address": "https://zlisto.github.io/great-pyramid-of-giza/",
+      "owner": "zlisto",
+      "description": "The Giza plateau around 2560 BCE: Pharaoh Khufu's Great Pyramid in its gleaming white limestone casing, the queens' pyramids, and the Great Sphinx. Neferbubu the scribe tells its story.",
+      "spawns": [
+        "default",
+        "from_square",
+        "to_hanging_gardens",
+        "from_lighthouse_of_alexandria",
+        "to_lighthouse_of_alexandria"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_great_pyramid",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_hanging_gardens",
+          "label": "Hanging Gardens",
+          "href": "https://zlisto.github.io/hanging-gardens-of-babylon/",
+          "spawn": "from_great_pyramid",
+          "target": "hanging_gardens"
+        },
+        {
+          "id": "to_lighthouse_of_alexandria",
+          "label": "Lighthouse",
+          "href": "https://zlisto.github.io/lighthouse-of-alexandria/",
+          "spawn": "from_great_pyramid",
+          "target": "lighthouse_of_alexandria"
+        }
+      ],
+      "position": [
+        6.037,
+        -0.7,
+        -3.841
+      ]
+    },
+    {
+      "id": "hanging_gardens",
+      "name": "Hanging Gardens of Babylon",
+      "address": "https://zlisto.github.io/hanging-gardens-of-babylon/",
+      "owner": "zlisto",
+      "description": "The legendary terraced gardens of Babylon as ancient writers described them: tiers of trees and flowers above the Euphrates, watered by hidden machinery. Shamabubu the gardener tells their story, mystery included.",
+      "spawns": [
+        "default",
+        "from_square",
+        "from_great_pyramid",
+        "to_temple_of_artemis"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_hanging_gardens",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_temple_of_artemis",
+          "label": "Temple of Artemis",
+          "href": "https://zlisto.github.io/temple-of-artemis-at-ephesus/",
+          "spawn": "from_hanging_gardens",
+          "target": "temple_of_artemis"
+        }
+      ],
+      "position": [
+        -2.035,
+        -0.35,
+        7.57
+      ]
+    },
+    {
+      "id": "statue_of_zeus",
+      "name": "Statue of Zeus at Olympia",
+      "address": "https://zlisto.github.io/statue-of-zeus-at-olympia/",
+      "owner": "zlisto",
+      "description": "Inside the Temple of Zeus at Olympia around 430 BCE: Phidias's colossal seated Zeus of gold and ivory. Olympibubu the athlete tells its story.",
+      "spawns": [
+        "default",
+        "from_square",
+        "from_temple_of_artemis",
+        "to_mausoleum",
+        "from_colossus_of_rhodes"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_statue_of_zeus",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_mausoleum",
+          "label": "Mausoleum",
+          "href": "https://zlisto.github.io/mausoleum-at-halicarnassus/",
+          "spawn": "from_statue_of_zeus",
+          "target": "mausoleum"
+        }
+      ],
+      "position": [
+        -3.902,
+        0.0,
+        -7.513
+      ]
+    },
+    {
+      "id": "temple_of_artemis",
+      "name": "Temple of Artemis at Ephesus",
+      "address": "https://zlisto.github.io/temple-of-artemis-at-ephesus/",
+      "owner": "zlisto",
+      "description": "The great marble temple of Artemis at Ephesus, with its forest of Ionic columns. Artebubu the priestess tells its story.",
+      "spawns": [
+        "default",
+        "from_square",
+        "from_hanging_gardens",
+        "to_statue_of_zeus",
+        "from_mausoleum"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_temple_of_artemis",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_statue_of_zeus",
+          "label": "Statue of Zeus",
+          "href": "https://zlisto.github.io/statue-of-zeus-at-olympia/",
+          "spawn": "from_temple_of_artemis",
+          "target": "statue_of_zeus"
+        }
+      ],
+      "position": [
+        8.502,
+        0.35,
+        3.105
+      ]
+    },
+    {
+      "id": "mausoleum",
+      "name": "Mausoleum at Halicarnassus",
+      "address": "https://zlisto.github.io/mausoleum-at-halicarnassus/",
+      "owner": "zlisto",
+      "description": "The tomb of Mausolus at Halicarnassus around 350 BCE: a high podium, a ring of Ionic columns, a stepped pyramid roof and a marble chariot on top. Scopabubu the sculptor tells its story.",
+      "spawns": [
+        "default",
+        "from_square",
+        "from_statue_of_zeus",
+        "to_colossus_of_rhodes",
+        "to_temple_of_artemis"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_mausoleum",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_colossus_of_rhodes",
+          "label": "Colossus",
+          "href": "https://zlisto.github.io/colossus-of-rhodes/",
+          "spawn": "from_mausoleum",
+          "target": "colossus_of_rhodes"
+        },
+        {
+          "id": "to_temple_of_artemis",
+          "label": "Temple of Artemis",
+          "href": "https://zlisto.github.io/temple-of-artemis-at-ephesus/",
+          "spawn": "from_mausoleum",
+          "target": "temple_of_artemis"
+        }
+      ],
+      "position": [
+        -8.874,
+        0.7,
+        3.663
+      ]
+    },
+    {
+      "id": "colossus_of_rhodes",
+      "name": "Colossus of Rhodes",
+      "address": "https://zlisto.github.io/colossus-of-rhodes/",
+      "owner": "zlisto",
+      "description": "The harbor of Rhodes around 280 BCE, where the bronze sun god Helios stood about 33 m tall. Charebubu the bronzesmith tells its story.",
+      "spawns": [
+        "default",
+        "from_square",
+        "from_mausoleum",
+        "to_lighthouse_of_alexandria",
+        "to_statue_of_zeus"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_colossus_of_rhodes",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_lighthouse_of_alexandria",
+          "label": "Lighthouse",
+          "href": "https://zlisto.github.io/lighthouse-of-alexandria/",
+          "spawn": "from_colossus_of_rhodes",
+          "target": "lighthouse_of_alexandria"
+        },
+        {
+          "id": "to_statue_of_zeus",
+          "label": "Statue of Zeus",
+          "href": "https://zlisto.github.io/statue-of-zeus-at-olympia/",
+          "spawn": "from_colossus_of_rhodes",
+          "target": "statue_of_zeus"
+        }
+      ],
+      "position": [
+        4.289,
+        -0.7,
+        -9.165
+      ]
+    },
+    {
+      "id": "lighthouse_of_alexandria",
+      "name": "Lighthouse of Alexandria",
+      "address": "https://zlisto.github.io/lighthouse-of-alexandria/",
+      "owner": "zlisto",
+      "description": "The island of Pharos at Alexandria, where a three-tiered lighthouse over 100 m tall guided ships with a fire at its top. Pharobubu the lightkeeper tells its story.",
+      "spawns": [
+        "default",
+        "from_square",
+        "from_colossus_of_rhodes",
+        "to_great_pyramid",
+        "from_great_pyramid"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_lighthouse_of_alexandria",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_great_pyramid",
+          "label": "Great Pyramid",
+          "href": "https://zlisto.github.io/great-pyramid-of-giza/",
+          "spawn": "from_lighthouse_of_alexandria",
+          "target": "great_pyramid"
+        }
+      ],
+      "position": [
+        3.176,
+        -0.35,
+        10.127
+      ]
+    },
+    {
+      "id": "arcade_of_alexandria",
+      "name": "Arcade of Alexandria",
+      "address": "https://zlisto.github.io/arcade_of_alexandria/",
+      "owner": "zlisto",
+      "description": "A Metaverse Web hall where textbooks become video games. Talk to Callimachus the librarian, search the catalog, and play cabinets — starting with Algebraic Topology.",
+      "spawns": [
+        "default",
+        "from_square",
+        "hub_portal"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_metaverse_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_arcade_of_alexandria",
+          "target": "metaverse_square"
+        }
+      ],
+      "position": [
+        -9.591,
+        0.0,
+        -5.558
+      ]
+    },
+    {
+      "id": "metaverse_square",
+      "name": "Metaverse Square",
+      "address": "https://zlisto.github.io/hub_world/",
+      "owner": "zlisto",
+      "description": "A calm open plaza with a fountain, and a ring of portals to every world in the Metaverse Web registry. Start here to find somewhere to go.",
+      "spawns": [
+        "default",
+        "by_evans_hall_3d",
+        "by_darul_kebab",
+        "by_hpa_office",
+        "by_starter_world",
+        "by_great_pyramid",
+        "by_hanging_gardens",
+        "by_statue_of_zeus",
+        "by_temple_of_artemis",
+        "by_mausoleum",
+        "by_colossus_of_rhodes",
+        "by_lighthouse_of_alexandria",
+        "by_evans_hall_lan"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_evans_hall_3d",
+          "label": "Yale SOM · Evans Hall",
+          "href": "https://zlisto.github.io/evans-hall-3d/",
+          "spawn": "from_square",
+          "target": "evans_hall_3d"
+        },
+        {
+          "id": "to_darul_kebab",
+          "label": "Darul Kebab",
+          "href": "https://zlisto.github.io/darul_kebab/",
+          "spawn": "default",
+          "target": "darul_kebab"
+        },
+        {
+          "id": "to_hpa_office",
+          "label": "HPA Office",
+          "href": "https://baggs99.github.io/som-explore/office.html",
+          "spawn": "from_square",
+          "target": "hpa_office"
+        },
+        {
+          "id": "to_starter_world",
+          "label": "Starter World",
+          "href": "https://zlisto.github.io/world_starter/",
+          "spawn": "default",
+          "target": "starter_world"
+        },
+        {
+          "id": "to_great_pyramid",
+          "label": "Great Pyramid of Giza",
+          "href": "https://zlisto.github.io/great-pyramid-of-giza/",
+          "spawn": "from_square",
+          "target": "great_pyramid"
+        },
+        {
+          "id": "to_hanging_gardens",
+          "label": "Hanging Gardens of Babylon",
+          "href": "https://zlisto.github.io/hanging-gardens-of-babylon/",
+          "spawn": "from_square",
+          "target": "hanging_gardens"
+        },
+        {
+          "id": "to_statue_of_zeus",
+          "label": "Statue of Zeus at Olympia",
+          "href": "https://zlisto.github.io/statue-of-zeus-at-olympia/",
+          "spawn": "from_square",
+          "target": "statue_of_zeus"
+        },
+        {
+          "id": "to_temple_of_artemis",
+          "label": "Temple of Artemis at Ephesus",
+          "href": "https://zlisto.github.io/temple-of-artemis-at-ephesus/",
+          "spawn": "from_square",
+          "target": "temple_of_artemis"
+        },
+        {
+          "id": "to_mausoleum",
+          "label": "Mausoleum at Halicarnassus",
+          "href": "https://zlisto.github.io/mausoleum-at-halicarnassus/",
+          "spawn": "from_square",
+          "target": "mausoleum"
+        },
+        {
+          "id": "to_colossus_of_rhodes",
+          "label": "Colossus of Rhodes",
+          "href": "https://zlisto.github.io/colossus-of-rhodes/",
+          "spawn": "from_square",
+          "target": "colossus_of_rhodes"
+        },
+        {
+          "id": "to_lighthouse_of_alexandria",
+          "label": "Lighthouse of Alexandria",
+          "href": "https://zlisto.github.io/lighthouse-of-alexandria/",
+          "spawn": "from_square",
+          "target": "lighthouse_of_alexandria"
+        },
+        {
+          "id": "to_evans_hall_lan",
+          "label": "Evans Hall · Floor 2",
+          "href": "https://www.laneluo.com/yale_som_virtual/",
+          "spawn": "from_square",
+          "target": "evans_hall_lan"
+        }
+      ],
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "evans_hall_lan",
+      "name": "Evans Hall · Floor 2",
+      "address": "https://www.laneluo.com/yale_som_virtual/",
+      "owner": "ericluo04",
+      "description": "The second floor of Yale SOM's Evans Hall: blue classroom drums where Hogwarts professors teach MBA classes to Labubu students, the glass cloister round the courtyard, Ross Library, the Beinecke Terrace Room, and a few easter eggs.",
+      "spawns": [
+        "default",
+        "from_square"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_metaverse_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_evans_hall_lan",
+          "target": "metaverse_square"
+        }
+      ],
+      "position": [
+        11.269,
+        0.35,
+        -2.477
+      ]
+    },
+    {
+      "id": "taj_mahal",
+      "name": "Taj Mahal",
+      "address": "https://ayush-rajpal.github.io/taj-mahal/",
+      "owner": "ayush-rajpal",
+      "description": "Shah Jahan's white marble tomb for Mumtaz Mahal in Agra, built in Blender from real photographs: the Great Gate, the charbagh garden and reflecting pools, the plinth and minarets, and the tomb chamber with its cenotaphs. Amanat the calligrapher, a Labubu guide, answers questions ",
+      "spawns": [
+        "default",
+        "from_square",
+        "forecourt_west",
+        "forecourt_east",
+        "gate_exit",
+        "north_exit",
+        "north_exit_west",
+        "hub_portal",
+        "great_gate",
+        "lotus_pool",
+        "taj_terrace",
+        "inside_tomb",
+        "riverfront",
+        "mosque",
+        "jawab"
+      ],
+      "online": true,
+      "portals": [
+        {
+          "id": "to_square",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_taj_mahal",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_square_forecourt_west",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_taj_mahal",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_square_forecourt_east",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_taj_mahal",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_square_gate",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_taj_mahal",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_square_north",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_taj_mahal",
+          "target": "metaverse_square"
+        },
+        {
+          "id": "to_square_north_west",
+          "label": "Metaverse Square",
+          "href": "https://zlisto.github.io/hub_world/",
+          "spawn": "by_taj_mahal",
+          "target": "metaverse_square"
+        }
+      ],
+      "position": [
+        -6.886,
+        0.7,
+        9.795
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "evans_hall_3d",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_evans_hall_3d"
+    },
+    {
+      "from": "evans_hall_3d",
+      "to": "darul_kebab",
+      "label": "Darul Kebab",
+      "spawn": "front_door"
+    },
+    {
+      "from": "evans_hall_3d",
+      "to": "hpa_office",
+      "label": "HPA Office",
+      "spawn": "default"
+    },
+    {
+      "from": "evans_hall_3d",
+      "to": "lighthouse_of_alexandria",
+      "label": "Lighthouse of Alexandria",
+      "spawn": "from_square"
+    },
+    {
+      "from": "darul_kebab",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_darul_kebab"
+    },
+    {
+      "from": "darul_kebab",
+      "to": "evans_hall_3d",
+      "label": "Evans Hall",
+      "spawn": "from_darul"
+    },
+    {
+      "from": "darul_kebab",
+      "to": "hanging_gardens",
+      "label": "Hanging Gardens",
+      "spawn": "from_square"
+    },
+    {
+      "from": "hpa_office",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_hpa_office"
+    },
+    {
+      "from": "starter_world",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_starter_world"
+    },
+    {
+      "from": "starter_world",
+      "to": "evans_hall_3d",
+      "label": "Evans Hall · 2200",
+      "spawn": "room_2200"
+    },
+    {
+      "from": "great_pyramid",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_great_pyramid"
+    },
+    {
+      "from": "great_pyramid",
+      "to": "hanging_gardens",
+      "label": "Hanging Gardens",
+      "spawn": "from_great_pyramid"
+    },
+    {
+      "from": "great_pyramid",
+      "to": "lighthouse_of_alexandria",
+      "label": "Lighthouse",
+      "spawn": "from_great_pyramid"
+    },
+    {
+      "from": "hanging_gardens",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_hanging_gardens"
+    },
+    {
+      "from": "hanging_gardens",
+      "to": "temple_of_artemis",
+      "label": "Temple of Artemis",
+      "spawn": "from_hanging_gardens"
+    },
+    {
+      "from": "statue_of_zeus",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_statue_of_zeus"
+    },
+    {
+      "from": "statue_of_zeus",
+      "to": "mausoleum",
+      "label": "Mausoleum",
+      "spawn": "from_statue_of_zeus"
+    },
+    {
+      "from": "temple_of_artemis",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_temple_of_artemis"
+    },
+    {
+      "from": "temple_of_artemis",
+      "to": "statue_of_zeus",
+      "label": "Statue of Zeus",
+      "spawn": "from_temple_of_artemis"
+    },
+    {
+      "from": "mausoleum",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_mausoleum"
+    },
+    {
+      "from": "mausoleum",
+      "to": "colossus_of_rhodes",
+      "label": "Colossus",
+      "spawn": "from_mausoleum"
+    },
+    {
+      "from": "mausoleum",
+      "to": "temple_of_artemis",
+      "label": "Temple of Artemis",
+      "spawn": "from_mausoleum"
+    },
+    {
+      "from": "colossus_of_rhodes",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_colossus_of_rhodes"
+    },
+    {
+      "from": "colossus_of_rhodes",
+      "to": "lighthouse_of_alexandria",
+      "label": "Lighthouse",
+      "spawn": "from_colossus_of_rhodes"
+    },
+    {
+      "from": "colossus_of_rhodes",
+      "to": "statue_of_zeus",
+      "label": "Statue of Zeus",
+      "spawn": "from_colossus_of_rhodes"
+    },
+    {
+      "from": "lighthouse_of_alexandria",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_lighthouse_of_alexandria"
+    },
+    {
+      "from": "lighthouse_of_alexandria",
+      "to": "great_pyramid",
+      "label": "Great Pyramid",
+      "spawn": "from_lighthouse_of_alexandria"
+    },
+    {
+      "from": "arcade_of_alexandria",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_arcade_of_alexandria"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "evans_hall_3d",
+      "label": "Yale SOM · Evans Hall",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "darul_kebab",
+      "label": "Darul Kebab",
+      "spawn": "default"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "hpa_office",
+      "label": "HPA Office",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "starter_world",
+      "label": "Starter World",
+      "spawn": "default"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "great_pyramid",
+      "label": "Great Pyramid of Giza",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "hanging_gardens",
+      "label": "Hanging Gardens of Babylon",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "statue_of_zeus",
+      "label": "Statue of Zeus at Olympia",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "temple_of_artemis",
+      "label": "Temple of Artemis at Ephesus",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "mausoleum",
+      "label": "Mausoleum at Halicarnassus",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "colossus_of_rhodes",
+      "label": "Colossus of Rhodes",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "lighthouse_of_alexandria",
+      "label": "Lighthouse of Alexandria",
+      "spawn": "from_square"
+    },
+    {
+      "from": "metaverse_square",
+      "to": "evans_hall_lan",
+      "label": "Evans Hall · Floor 2",
+      "spawn": "from_square"
+    },
+    {
+      "from": "evans_hall_lan",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_evans_hall_lan"
+    },
+    {
+      "from": "taj_mahal",
+      "to": "metaverse_square",
+      "label": "Metaverse Square",
+      "spawn": "by_taj_mahal"
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "worlds": 15,
+    "online": 15,
+    "edges": 42
+  }
+}
